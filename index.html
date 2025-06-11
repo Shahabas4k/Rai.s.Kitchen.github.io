@@ -69,6 +69,57 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    .grid-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.food-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.food-card:hover {
+  transform: scale(1.02);
+}
+
+.food-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.food-card .info {
+  padding: 0.5rem 1rem 1rem;
+  text-align: center;
+}
+
+.food-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.food-card p {
+  margin: 0.2rem 0;
+  color: #444;
+}
+
+.food-card button {
+  margin-top: 0.5rem;
+  background: #ff6600;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+    
   </style>
 </head>
 <body>
@@ -144,26 +195,46 @@
   
 <section class="section" id="order-form">
   <h2>Place an Order</h2>
-<form id="contact-form">
-  <input type="text" name="user_name" placeholder="Your Name" required />
-  <input type="email" name="user_email" placeholder="Your Email" required />
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("your_user_id"); // Replace with your EmailJS user ID
-  })();
+</section>
 
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    emailjs.sendForm('your_service_id', 'your_template_id', this)
-      .then(() => alert("Message sent!"))
-      .catch((error) => alert("Failed to send: " + error));
-  });
-</script>
+  
+        <section id="new-menu" class="section">
+  <h2 style="text-align:center;">Menu</h2>
+  <div class="grid-menu">
+
+    <!-- Food Card 1 -->
+    <div class="food-card">
+      <img src="https://via.placeholder.com/300x200?text=Chicken+Biryani+Full" alt="Chicken Biryani Full">
+      <div class="info">
+        <h3>Chicken Biryani Full</h3>
+        <p>₹185</p>
+        <button>ADD</button>
+      </div>
+    </div>
+
+    <!-- Food Card 2 -->
+    <div class="food-card">
+      <img src="https://via.placeholder.com/300x200?text=Chicken+Biryani+Half" alt="Chicken Biryani Half">
+      <div class="info">
+        <h3>Chicken Biryani Half</h3>
+        <p>₹110</p>
+        <button>ADD</button>
+      </div>
+    </div>
+
+    <!-- Food Card 3 -->
+    <div class="food-card">
+      <img src="https://via.placeholder.com/300x200?text=Chicken+Curry" alt="Chicken Curry">
+      <div class="info">
+        <h3>Chicken Curry</h3>
+        <p>₹105</p>
+        <button>ADD</button>
+      </div>
+    </div>
+
+    <!-- Add more items similarly -->
+  </div>
 </section>
   
   <div class="cta">
