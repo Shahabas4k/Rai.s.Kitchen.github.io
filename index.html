@@ -163,6 +163,31 @@
   }
 }
 
+    .bottom-action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffb703;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0;
+  z-index: 999;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-action-bar a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.bottom-action-bar a:hover {
+  color: #e63946;
+}
+
+
     
   </style>
 </head>
@@ -307,5 +332,13 @@
   <img src="https://cdn-icons-png.flaticon.com/512/3536/3536445.png" alt="WhatsApp" style="width:60px;height:60px;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);" />
  
 </a>
+
+  <div class="bottom-action-bar">
+  <a href="#menu">Menu</a>
+  <a href="#about">About</a>
+  <a href="#offer">Offer</a>
+  <a href="#contact">Contact</a>
+</div>
+
 </body>
 </html>
