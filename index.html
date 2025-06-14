@@ -1,3 +1,16 @@
+<script>
+  function toggleMenu() {
+    const sideMenu = document.getElementById("sideMenu");
+    sideMenu.classList.toggle("open");
+
+    const bottomBar = document.querySelector(".bottom-action-bar");
+    if (sideMenu.classList.contains("open")) {
+      bottomBar.style.display = "none";
+    } else {
+      bottomBar.style.display = "flex";
+    }
+  }
+</script>
 <!DOCTYPE html>
 <html lang="en">
    
@@ -415,6 +428,19 @@
   <a href="#offer">Offer</a>
   <a href="#contact">Contact</a>
 </div>
+<script>
+  function toggleMenu() {
+    const sideMenu = document.getElementById("sideMenu");
+    sideMenu.classList.toggle("open");
+
+    const bottomBar = document.querySelector(".bottom-action-bar");
+    if (sideMenu.classList.contains("open")) {
+      bottomBar.style.display = "none";
+    } else {
+      bottomBar.style.display = "flex";
+    }
+  }
+</script>
 
 <script>
   function toggleMenu() {
