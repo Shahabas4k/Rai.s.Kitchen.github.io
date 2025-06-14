@@ -1,284 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
+   
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rai's Kitchen - Authentic Thalassery Dum Biryani and Malabar Snacks delivered fresh to your doorstep in Kannur.">
-  <meta name="keywords" content="thalassery biryani, homemade food Kannur, Rai's Kitchen, malabar snacks, unnakai, dum biryani delivery">
-  <title>Rai's Kitchen | Homemade Thalassery Biryani</title>
-  <link rel="icon" href="favicon.ico">
+
+   <meta name="keywords" content="thalassery biryani, homemade food Kannur, Rai's Kitchen, malabar snacks, unnakai, dum biryani delivery">
+
+  <meta name="description" content="Order homemade Thalassery Dum Biryani and snacks in Kannur. Fresh, delicious, and delivered to your door.">
+<meta property="og:title" content="Rai's Kitchen - Thalassery Dum Biryani & Snacks">
+<meta property="og:description" content="Homemade food service in Kannur. Authentic Dum Biryani, Unnakai, and more.">
+<meta property="og:image" content="https://images.pexels.com/photos/16020573/pexels-photo-16020573.jpeg">
+<meta property="og:url" content="https://yourwebsite.com">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rai's Kitchen - Homemade Biriyani & Snacks</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" />
   <style>
+
+   /* Action Bar */
+.action-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 0.8rem 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 60px; /* just below the action bar */
+  left: -250px;
+  width: 200px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+  padding: 1rem;
+  z-index: 999;
+}
+
+.side-menu a {
+  padding: 0.75rem 0;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.side-menu a:hover {
+  color: #ff4d4d;
+}
+
+/* When menu is open */
+.side-menu.open {
+  left: 0;
+}
+
+    
+  html {
+    scroll-behavior: smooth;
+  }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #fff;
+      padding: 0;
+      background: #fffaf5;
       color: #333;
     }
+ 
 
     header {
-      background: #e63946;
+      background-color: #e63946;
       color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav {
+      background: #ffb703;
       padding: 1rem;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
-
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    .action-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: #e63946;
-      width: 100%;
-      z-index: 1000;
-      padding: 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .action-bar button {
-      background: transparent;
-      color: white;
-      font-size: 1.5rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background: #333;
-      color: white;
-      padding: 1rem;
-      transition: left 0.3s ease-in-out;
-      z-index: 999;
-    }
-
-    .side-menu.open {
-      left: 0;
-    }
-
-    .side-menu a {
-      color: white;
-      display: block;
-      margin: 10px 0;
+    nav a {
+      color: black;
+      margin: 0 15px;
       text-decoration: none;
+      font-weight: bold;
     }
-
     .section {
       padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-
-    .section h2 {
-      color: #e63946;
+    .menu-item {
+      background: #fff;
       margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1613145995252-17fba3a1c51c') center/cover no-repeat;
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #e63946;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    footer {
+      background: #333;
       color: white;
       text-align: center;
-      padding: 6rem 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      text-shadow: 1px 1px 4px #000;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
     .grid-menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
 
-    .menu-item {
-      background: #f8f9fa;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+.food-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
 
-    .menu-item img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+.food-card:hover {
+  transform: scale(1.02);
+}
 
-    .menu-item h3 {
-      margin: 0.5rem 0 0.2rem;
-    }
+.food-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
 
-    .menu-item p {
-      margin: 0.2rem 0;
-    }
+.food-card .info {
+  padding: 0.5rem 1rem 1rem;
+  text-align: center;
+}
 
-    .menu-item button {
-      background: #ffb703;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.food-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0.2rem;
+}
 
-    .bottom-action-bar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #e63946;
-      display: flex;
-      justify-content: space-around;
-      padding: 0.7rem 0;
-      color: white;
-      z-index: 1000;
-    }
+.food-card p {
+  margin: 0.2rem 0;
+  color: #444;
+}
 
-    .bottom-action-bar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-    }
+.food-card button {
+  margin-top: 0.5rem;
+  background: #ff6600;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
 
-    .whatsapp-btn {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+      @media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
 
-    .floating-whatsapp {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: #25D366;
-      padding: 15px;
-      border-radius: 50%;
-      color: white;
-      font-size: 24px;
-      z-index: 1000;
-    }
+  .section {
+    padding: 1rem;
+  }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f1f1f1;
-    }
+  .grid-menu {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
 
-      .section {
-        padding: 1rem;
-      }
+  .section {
+    padding: 1rem;
+  }
 
-      .grid-menu {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      }
-    }
+  .grid-menu {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+.bottom-action-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffb703;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0;
+  z-index: 999;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-action-bar a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.bottom-action-bar a:hover {
+  color: #e63946;
+}
+
+
+    
   </style>
 </head>
 <body>
+   
+<header class="action-bar">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="app-title">Rai's Kitchen</div>
+</header>
 
-  <div class="action-bar">
-    <button onclick="toggleMenu()">☰</button>
-    <span>Rai's Kitchen</span>
-  </div>
+<nav id="sideMenu" class="side-menu">
+  <a href="#menu">Menu</a>
+  <a href="#about">About</a>
+  <a href="#offer">Offer</a>
+  <a href="#contact">Contact</a>
+</nav>   
+ 
+ <br><br>
 
-  <div id="sideMenu" class="side-menu">
-    <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#offer">Offer</a>
-    <a href="#review">Reviews</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <header>
+    <h1>Rai's Kitchen </h1>
+    <p>Thalassery Authentic Dum Biriyani & Snacks - Home Delivered</p>
+  </header>
 
-  <div class="hero">
-    <h1>Authentic Thalassery Biryani & Snacks</h1>
-    <a href="https://wa.me/919188335430" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Order Now on WhatsApp</a>
-  </div>
 
-  <section id="menu" class="section">
-    <h2>Our Menu</h2>
-    <div class="grid-menu">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1632203171982-cc4e47f9cbfd" alt="Chicken Biryani">
+  
+<section style="background:url('https://plus.unsplash.com/premium_photo-1680291971402-ccb1640bcd23?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; height: 90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:red; padding:2rem;">
+  <h1 style="font-size:3rem; font-weight:bold;">Authentic Thalassery Dum Biriyani</h1>
+  <p style="font-size:1.2rem; margin-top:1rem;">Home-cooked. Soul-warming. Delivered fresh.</p>
+  <a href="#menu" style="margin-top:2rem; padding: 1rem 2rem; background:#e63946; color:white; border-radius:30px; text-decoration:none; font-weight:bold;">View Menu</a>
+</section>
+
+         <section id="menu" class="section">
+  <h2 style="text-align:center;">Menu</h2>
+  <div class="grid-menu">
+
+    <!-- Food Card 1 -->
+    <div class="food-card">
+      <img src="https://images.pexels.com/photos/16020573/pexels-photo-16020573/free-photo-of-rice-and-chicken-meal-on-the-plate.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Chicken Biryani ">
+      <div class="info">
         <h3>Chicken Biryani</h3>
-        <p>₹150</p>
-        <button onclick="alert('Chicken Biryani added!')">ADD</button>
+        <p>F-₹120</p>
+        <p>H-₹100</p>
+     <button onclick="alert('Item added!')">ADD</button>
+
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1666002367646-9fc3e926eae6" alt="Unnakai">
-        <h3>Unnakai</h3>
-        <p>₹30</p>
-        <button onclick="alert('Unnakai added!')">ADD</button>
-      </div>
-      <!-- Add more menu items here -->
     </div>
-  </section>
+
+    <!-- Food Card 2 -->
+    <div class="food-card">
+      <img src="https://media.istockphoto.com/id/1410130688/photo/mutton-biryani-served-in-a-golden-dish-isolated-on-dark-background-side-view-indian-food.jpg?s=2048x2048&w=is&k=20&c=3l6KyUCUyNO2w0dJPmN4f2C-YPICegtONfM_7yiB7jg=" alt="Beef Biryani">
+
+      <div class="info">
+        <h3>Beef Biryani</h3>
+        <p>F-₹140</p>
+        <P>H-₹110</P>
+       <button onclick="alert('Item added!')">ADD</button>
+
+      </div>
+    </div>
+
+    <!-- Food Card 3 -->
+    <div class="food-card">
+      <img src="https://media.istockphoto.com/id/1333127675/photo/chicken-biryani-spicy-indian-malabar-biryani-hyderabadi-biryani-dum-biriyani-pulao-golden.jpg?s=2048x2048&w=is&k=20&c=WecVEuEacgjdKAfdGiUNSM9B_-2eaIOFcl9VqRvUhbQ=" alt="Chicken Chor">
+      <div class="info">
+        <h3>Chicken Chor</h3>
+        <p>F-₹110</p>
+        <p>S-₹90</p>
+        <button onclick="alert('Item added!')">ADD</button>
+
+      </div>
+    </div>
+
+      <div class="food-card">
+      <img src="https://media.istockphoto.com/id/1366286213/photo/indian-tandoori-chicken-biriyani-dish-with-yellow-saffron-rice-cashew-nuts-and-pappadum-bread.jpg?s=2048x2048&w=is&k=20&c=nyHSSJCN4XMXpk965IrrpvZfYuobfbK7jGkB-GvYXHI=" alt="Erachi Chor">
+      <div class="info">
+        <h3>Erachi Chor</h3>
+        <p>₹100</p>
+        <p> <br></p>
+      <button onclick="alert('Item added!')">ADD</button>
+
+      </div>
+    </div>
+
+      <div class="food-card">
+      <img src="https://media.istockphoto.com/id/1169097707/photo/spicy-and-hot-parippu-vada-and-indian-tea.jpg?s=2048x2048&w=is&k=20&c=qkZd6y5tGLIZbUBwfHWxspBIeLIHEDEuuVPYX76Rex8=" alt="Erachi Chor">
+      <div class="info">
+        <h3>Malabar Snacks</h3>
+        <p>₹10-₹45</p>
+        <p> <br></p>
+       ]<button onclick="alert('Item added!')">ADD</button>
+
+      </div>
+    </div>
+    <!-- Add more items similarly -->
+  </div>
+</section>
+<br>
+  <br>
+  <br>
+ 
 
   <section id="about" class="section">
     <h2>About Us</h2>
-    <p>Rai's Kitchen is a homemade food venture delivering the finest Thalassery Dum Biryani and snacks across Kannur. Prepared fresh daily with love and authentic Malabar spices.</p>
+    <p>We are a home-based food service in Kannur offering fresh, homemade meals with a taste of love and tradition. Every dish is made with care and authentic Thalassery flavor.</p>
   </section>
 
   <section id="offer" class="section">
-    <h2>Offers</h2>
-    <p>🎉 Buy 2 Chicken Biryanis, Get 1 Unnakai Free! 🎉</p>
+    <h2>Special Offer</h2>
+    <p><strong>Buy 2 Full Chicken Dum Biriyanis, Get 1 Half Free!</strong></p>
   </section>
-
-  <section id="review" class="section">
-    <h2>Customer Reviews</h2>
-    <p>⭐⭐⭐⭐⭐ "Best biryani in town!" – Faheem</p>
-    <p>⭐⭐⭐⭐⭐ "Tastes like home!" – Ayesha</p>
-  </section>
+  <section id="reviews" class="section">
+  <h2>Customer Reviews</h2>
+  <div class="menu-item">
+    <p>"The best biriyani I’ve had in Kannur! Flavor is top notch." - Ameen</p>
+  </div>
+  <div class="menu-item">
+    <p>"Loved the unnakai and Pazham pori. Reminded me of home!" - Farzana</p>
+  </div>
+</section>
 
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>📍 Kannur, Kerala</p>
-    <p>📞 9188335430</p>
-    <a href="https://wa.me/919188335430" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+    <h2>Contact & Orders</h2>
+    <p>📍 Thalassery, Kannur</p>
+    <p>📞 <a href="tel:+919188335430">+91 91883 35430</a></p>
+    <p>💬 <a href="https://wa.me/919188335430">Order via WhatsApp</a></p>
+    <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.308!2d75.5!3d11.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba438f!2sThalassery,%20Kannur!5e0!3m2!1sen!2sin!4v12345"
+  width="100%" height="250" style="border:0; border-radius:8px;" allowfullscreen=""
+  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
+  
+<section class="section" id="order-form">
+  <h2>Place an Order</h2>
+<p>Send us your order on WhatsApp, tap the order now button below. Mention your name, address, and selected items.</p>
 
-  <a class="floating-whatsapp" href="https://wa.me/919188335430" target="_blank" rel="noopener noreferrer">📞</a>
+
+</section>
+
+  <div class="cta">
+  <a href="https://wa.me/919188335430" target="_blank" aria-label="Order now on WhatsApp"
+     style="display:inline-block;padding:1rem 2rem;background:#25D366;color:white;border-radius:30px;text-decoration:none;font-weight:bold;">
+    Order now 
+  </a>
+</div>
+
+ 
+  
+
 
   <footer>
-    &copy; 2025 Rai's Kitchen. All rights reserved.
+    <p>© 2025 Rai's Food | Homemade Taste, Delivered Fresh</p>
   </footer>
+<a href="https://wa.me/919188335430" target="_blank" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
+  <img src="https://cdn-icons-png.flaticon.com/512/3536/3536445.png" alt="WhatsApp" style="width:60px;height:60px;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);" />
+ 
+</a>
 
   <div class="bottom-action-bar">
-    <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#offer">Offer</a>
-    <a href="#review">Reviews</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="#menu">Menu</a>
+  <a href="#about">About</a>
+  <a href="#offer">Offer</a>
+  <a href="#contact">Contact</a>
+</div>
+<script>
+  function toggleMenu() {
+    const sideMenu = document.getElementById("sideMenu");
+    sideMenu.classList.toggle("open");
 
-  <script>
-    function toggleMenu() {
-      const sideMenu = document.getElementById("sideMenu");
-      const bottomBar = document.querySelector(".bottom-action-bar");
-      sideMenu.classList.toggle("open");
-      bottomBar.style.display = sideMenu.classList.contains("open") ? "none" : "flex";
+    const bottomBar = document.querySelector(".bottom-action-bar");
+    if (sideMenu.classList.contains("open")) {
+      bottomBar.style.display = "none";
+    } else {
+      bottomBar.style.display = "flex";
     }
-  </script>
+  }
+</script>
+
+
+
+   
 </body>
 </html>
 
